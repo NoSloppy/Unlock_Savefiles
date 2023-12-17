@@ -3,27 +3,37 @@
 import os
 import tkinter as tk
 from tkinter import filedialog
+from tkinter import messagebox
 
 class ProffieSafe:
     def __init__(self, filename):
         self.valid = False
-        self.f = open(filename, "rb")
+        try:
+            self.f = open(filename, "rb")
+        except FileNotFoundError:
+            messagebox.showerror("File Not Found", f"{filename} not found")
+            return
 
         if self.read_uint32() != 0xFF1E5AFE:
+            messagebox.showerror("Error", f"{filename}: wrong magic number")
             return
-        
+
         checksum = self.read_uint32()
         iteration = self.read_uint32()
         length = self.read_uint32()
 
         if self.read_uint32() != 0xFF1E5AFE:
+            messagebox.showerror("Error", f"{filename}: wrong magic number in second header")
             return
 
         if self.read_uint32() != checksum:
+            messagebox.showerror("Error", f"{filename}: second header doesn't match (checksum)")
             return
         if self.read_uint32() != iteration:
+            messagebox.showerror("Error", f"{filename}: second header doesn't match (iteration)")
             return
         if self.read_uint32() != length:
+            messagebox.showerror("Error", f"{filename}: second header doesn't match (length)")
             return
 
         self.f.seek(512)
@@ -31,12 +41,14 @@ class ProffieSafe:
         for x in range(0, length):
             c = (c * 997 + self.read_uint8()) & 0xFFFFFFFF
         if c != checksum:
+            messagebox.showerror("Error", f"{filename}: Checksum doesn't match content. {c} != {checksum}")
             return
 
         self.valid = True
         self.checksum = checksum
         self.iteration = iteration
         self.length = length
+
 
     def read_uint8(self):
         return ord(self.f.read(1))
@@ -68,7 +80,7 @@ def main():
     )
 
     if not ini_full_path:
-        print("No file provided.")
+        messagebox.showinfo("No File", "No file provided.")
         return
 
     file_dir = os.path.dirname(ini_full_path)
