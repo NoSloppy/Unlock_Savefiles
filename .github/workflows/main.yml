@@ -1,0 +1,26 @@
+name: Build Windows Executable
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8' # or any version you need
+
+    - name: Install PyInstaller
+      run: pip install pyinstaller
+
+    - name: Build Executable
+      run: pyinstaller --onefile --windowed Unlock_Savefiles.py
+
+    - name: Upload Executable
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows-executable
+        path: dist/*.exe
