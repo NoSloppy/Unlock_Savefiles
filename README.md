@@ -1,2 +1,2 @@
 # Unlock_Savefiles
-Make ProffieOS save files human friendly for editing.
+Make ProffieOS save files user friendly for editing.
