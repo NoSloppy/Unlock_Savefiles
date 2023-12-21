@@ -22,5 +22,5 @@ jobs:
     - name: Upload Executable
       uses: actions/upload-artifact@v2
       with:
-        name: windows-executable
+        name: Unlock_Savefiles_Win
         path: dist/*.exe
