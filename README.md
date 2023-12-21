@@ -16,3 +16,4 @@ The resulting .ini file is the one you want.
 The previous version is renamed .bak, and there’s a .old version of the tmp file.  
 
 Please let me know if there’s any issues.  
+.
