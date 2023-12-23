@@ -1,0 +1,30 @@
+name: Build Linux App
+
+on: [push]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y python3-tk
+        python -m pip install --upgrade pip
+        pip install pyinstaller
+
+    - name: Build Application
+      run: pyinstaller --onefile --windowed Unlock_Savefiles.py
+
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: Unlock_Savefiles_Linux
+        path: dist/Unlock_Savefiles
