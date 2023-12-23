@@ -3,7 +3,7 @@ Make ProffieOS save files user friendly for editing.
 
 ProffieOS saves .ini files to the SD card in a format that can be tricky to edit afterwards.  
 This application is built on on python script that creates a user-friendly version of the .ini that can be edited in any text editor.  
-This works for any .ini ProffieOS saves (presets, global, curstate).  
+This works for any .ini ProffieOS saves (presets, global, curstate, gestures).  
 
 
 Go to the Releases on the right side of the repo page, choose the latest, then click the .zip file to download.  
