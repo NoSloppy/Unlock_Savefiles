@@ -7,9 +7,14 @@ This works for any .ini ProffieOS saves (presets, global, curstate, gestures).
 
 
 Go to the Releases on the right side of the repo page, choose the latest, then click the .zip file to download.  
-The .zip file contains both a MacOS .app and a Windows .exe, choose your flavor.  
+The .zip file contains:
+ - MacOS .app
+- Windows .exe
+- Linux executable
 
-Simply double click the file and you get prompted to choose the .ini file you are looking to make edits to.  
+Choose your flavor.
+
+Run Unlock_Savefiles and you get prompted to choose the .ini file you are looking to make edits to.  
 It creates a version without all of the hex “in the way”.  
 
 The resulting .ini file is the one you want.  
