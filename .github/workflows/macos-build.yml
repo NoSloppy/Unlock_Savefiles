@@ -17,11 +17,25 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pyinstaller
+        
+    - name: Log Python and Tkinter Versions
+      run: |
+        echo "Python Version:"
+        python --version
+        echo "Tkinter Version:"
+        python -c "import tkinter; print(tkinter.TkVersion); print(tkinter.TclVersion)"
 
     - name: Build Application
       run: pyinstaller --onefile --windowed Unlock_Savefiles.py
 
-    - name: Upload Artifact
+    - name: Debug PyInstaller Bundling
+      run: |
+        echo "Contents of dist directory:"
+        ls -alh dist/
+        echo "Contents of the app bundle:"
+        ls -alh dist/Unlock_Savefiles.app/Contents/MacOS
+
+  - name: Upload Artifact
       uses: actions/upload-artifact@v2
       with:
         name: Unlock_Savefiles_Mac
