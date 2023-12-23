@@ -1,5 +1,5 @@
 # Unlock_Savefiles
-Make ProffieOS save files user friendly for editing.
+Make ProffieOS save files user-friendly for editing.
 
 ProffieOS saves .ini files to the SD card in a format that can be tricky to edit afterwards.  
 This application is built on on python script that creates a user-friendly version of the .ini that can be edited in any text editor.  
