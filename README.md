@@ -16,3 +16,5 @@ The resulting .ini file is the one you want.
 The previous version is renamed .bak, and there’s a .old version of the tmp file.  
 
 Please let me know if there’s any issues.  
+*Note** MacOS first run only - Right-click and choose Open, then confirm you want to open it.  
+It'll complain that I'm an "Unknown Developer" if you try to open normally by double clicking the .app.  
