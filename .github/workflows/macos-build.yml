@@ -42,5 +42,5 @@ jobs:
         path: dist/*.app
 
     - name: Set Executable Permissions
-      run: chmod -R 755 dist/Unlock_Savefiles.app
+      run: sudo chmod -R 755 dist/Unlock_Savefiles.app
 
